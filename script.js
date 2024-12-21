@@ -19,16 +19,6 @@ function hideError(element) {
     element.style.display = 'none';
 }
 
-// Хеширование паролей
-async function hashPassword(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    return Array.from(new Uint8Array(hashBuffer))
-        .map(b => b.toString(16).padStart(2, '0'))
-        .join('');
-}
-
 // Переключение между секциями
 showRegisterButton.addEventListener('click', () => {
     loginSection.style.display = 'none';
@@ -51,17 +41,24 @@ registerButton.addEventListener('click', async () => {
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || {};
+    try {
+        const response = await fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+        });
 
-    if (users[username]) {
-        showError(registerError, 'Пользователь с таким логином уже существует.');
-    } else {
-        const hashedPassword = await hashPassword(password);
-        users[username] = hashedPassword;
-        localStorage.setItem('users', JSON.stringify(users));
-        alert('Регистрация успешна! Теперь вы можете войти.');
-        registerSection.style.display = 'none';
-        loginSection.style.display = 'block';
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Регистрация успешна! Теперь вы можете войти.');
+            registerSection.style.display = 'none';
+            loginSection.style.display = 'block';
+        } else {
+            showError(registerError, data.error || 'Ошибка регистрации.');
+        }
+    } catch (error) {
+        showError(registerError, 'Ошибка соединения с сервером.');
     }
 });
 
@@ -76,14 +73,24 @@ loginButton.addEventListener('click', async () => {
         return;
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || {};
-    const hashedPassword = await hashPassword(password);
+    try {
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+        });
 
-    if (users[username] && users[username] === hashedPassword) {
-        alert('Добро пожаловать, ' + username + '!');
-        window.location.href = './main.html';
-    } else {
-        showError(loginError, 'Неверный логин или пароль.');
+        const data = await response.json();
+
+        if (response.ok) {
+            localStorage.setItem('token', data.token); // Сохраняем токен
+            alert('Добро пожаловать, ' + username + '!');
+            window.location.href = './main.html'; // Переход на защищенную страницу
+        } else {
+            showError(loginError, data.error || 'Ошибка входа.');
+        }
+    } catch (error) {
+        showError(loginError, 'Ошибка соединения с сервером.');
     }
 });
 
