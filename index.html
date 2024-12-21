@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход и Регистрация</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение CSS -->
+</head>
+<body>
+    <div class="container">
+        <!-- Секция входа -->
+        <div id="loginSection">
+            <h2>Вход</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Логин</label>
+                    <input type="text" id="loginUsername" name="loginUsername" placeholder="Введите логин" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" id="loginPassword" name="loginPassword" placeholder="Введите пароль" required>
+                </div>
+                <p class="error-message" id="loginError"></p> <!-- Ошибка входа -->
+                <button type="button" class="btn" id="loginButton">Войти</button>
+            </form>
+            <p>Нет аккаунта? <button id="showRegisterButton" class="link-btn">Зарегистрироваться</button></p>
+        </div>
+
+        <!-- Секция регистрации -->
+        <div id="registerSection" style="display: none;">
+            <h2>Регистрация</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" name="username" placeholder="Введите логин" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+                </div>
+                <p class="error-message" id="registerError"></p> <!-- Ошибка регистрации -->
+                <button type="button" class="btn" id="registerButton">Зарегистрироваться</button>
+            </form>
+            <p>Уже есть аккаунт? <button id="showLoginButton" class="link-btn">Войти</button></p>
+        </div>
+    </div>
+    <script src="script.js"></script> <!-- Подключение JavaScript -->
+</body>
+</html>
