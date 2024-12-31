@@ -1,0 +1,150 @@
+ul{
+    display: grid; /* Используем Grid Layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки одинаковой ширины */
+    gap: 10px; /* Оптимальный отступ между кнопками */
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+    
+}
+
+ul li a:hover {
+    background-color: #75b8ff;
+    transition: 0.6s; /* Добавляем анимацию */
+}
+
+@media (max-width: 600px) {
+    ul {
+        grid-template-columns: repeat(2, 1fr); /* По 2 кнопки в строке */
+    }
+}
+
+  a{text-decoration:none;
+  padding:10px 40px;
+  text-align:center;
+  background:#7facff;
+    color:#FAFAFA;
+    border-radius: 30px;
+  }
+  ul{
+    list-style:none;
+    width:100%;
+  }
+   ol {
+    display: grid; /* Используем Grid Layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки одинаковой ширины */
+    gap: 10px; /* Оптимальный отступ между кнопками */
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+}
+
+
+
+   @media (max-width: 600px) {
+    ol {
+        grid-template-columns: repeat(2, 1fr); /* По 2 кнопки в строке */
+    }
+}
+ 
+ol li a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Уменьшенные отступы внутри кнопки */
+    background-color: #6db4ff;
+    color: white;
+    text-align: center;
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 14px;
+    width: 100%; /* Кнопка растягивается на ширину колонки */
+    box-sizing: border-box; /* Учитываем отступы внутри кнопки */
+}
+ol li a:hover {
+    background-color: #88c3ff;
+    transition: 0.6s; /* Добавляем анимацию */
+}
+h5{
+    text-align: center;
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Уменьшенные отступы внутри кнопки */
+    background-color: #3b9aff;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 10px; /* Скругленные углы */
+    font-size: 14px;
+    width: 100%; /* Кнопка растягивается на ширину колонки */
+    box-sizing: border-box; /* Учитываем отступы внутри кнопки */
+}
+#my-id{
+ text-align:center;
+}
+#ert{
+    color: #1d8aff;
+} 
+#rtt{
+    color: #007bff;
+    text-align: left;
+    background: none;
+    padding: 1px 10px; /* Уменьшенные отступы внутри кнопки */
+}
+#rte{
+    color: #007bff;
+    text-align: left;
+    background: none;
+    padding: 1px 10px; /* Уменьшенные отступы внутри кнопки */
+}
+#rel{
+    color: #1d8aff;
+    text-align: center;
+}
+#int{
+    text-align: center;
+}
+#ff{
+    background:white;
+    color: #007bff;
+}
+#it{
+    width: 50%;
+}
+
+#itt {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем внутренние отступы */
+    margin-top: 40px; /* Отступ сверху */
+    display: flex; /* Делаем элементы флекс-контейнером */
+    justify-content: center; /* Центрируем кнопки по горизонтали */
+    gap: 20px; /* Добавляем промежуток между кнопками */
+  }
+  
+  #itt li {
+    margin: 0; /* Убираем отступы у пунктов списка */
+  }
+  
+  .it-btn {
+    display: inline-block; /* Блочно-строчный элемент для кнопки */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: white; /* Цвет текста */
+    background-color: #007bff; /* Цвет фона кнопки */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругленные углы */
+    font-size: 16px; /* Размер текста */
+    text-align: center; /* Центровка текста внутри кнопки */
+    border: none; /* Убираем границы */
+    cursor: pointer; /* Указываем действие при наведении */
+  }
+  
+  .it-btn:hover {
+    background-color: #6eb4ff; /* Изменение фона при наведении */
+    transition: 0.6s; /* Добавляем анимацию */
+  }
+  #tgt{
+    margin-bottom: 40px;
+  }
+  
