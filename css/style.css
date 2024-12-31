@@ -144,5 +144,8 @@ ul li a {
     background-color: #6eb4ff; /* Изменение фона при наведении */
     transition: 0.6s; /* Добавляем анимацию */
   }
+#tgt{
+    margin-bottom: 40px;
+  }
   
   
