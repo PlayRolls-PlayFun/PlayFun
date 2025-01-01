@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="image-container">
+        <img src="./img/playFunicon (3).png" width="300" alt="icon">
+        <img src="./img/starpf.png" class="hover-star" alt="star">
+    </div>
+    <h1 id="ert" data-en="PlayFun-Settings" data-ru="PlayFun-Настройки">PlayFun-Settings</h1>
+    <div>
+        <label for="player-name" data-en="Name:" data-ru="Имя:">Name:</label>
+        <input type="text" id="player-name">
+        <button id="save-name" data-en="Save" data-ru="Сохранить">Save</button>
+    </div>
+    <button class="theme-switcher">Switch to Dark Theme</button>
+
+    <!-- Кнопка с тремя точками -->
+    <div class="menu">
+        <button class="menu-toggle">⋮</button>
+        <div class="menu-dropdown">
+            <p data-en="Name: User" data-ru="Имя: Пользователь">Name: User</p>
+            <p data-en="Balance: $0" data-ru="Баланс: $0">Balance: $0</p>
+            <div>
+                <hr>
+                <p data-en="Language" data-ru="Язык">Language:</p>
+                <button class="language-switch" data-lang="en">English</button>
+                <button class="language-switch" data-lang="ru">Русский</button>
+                <hr>
+            </div>
+            <button class="menu-settings" onclick="window.location.href='./main.html';">Home</button>
+        </div>
+    </div>
+    <h5 id="my-id" data-en="This site is under development and therefore many features are missing." data-ru="Этот сайт в этапах разработки и много функций еще не готовы">This site is under development and therefore many features are missing.</h5>
+
+    <script src="./js/scripts.js" defer></script>
+</body>
+</html>
+
+
+
