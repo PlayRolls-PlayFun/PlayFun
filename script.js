@@ -8,8 +8,11 @@ const playersElement = document.querySelector('.players');
 // Функция для обновления статуса сервера
 async function updateServerStatus() {
     try {
+        console.log('Fetching server status from:', API_URL);
         const response = await fetch(API_URL);
         const data = await response.json();
+        
+        console.log('API Response:', data);
         
         if (response.ok) {
             // Обновляем статус
@@ -24,16 +27,16 @@ async function updateServerStatus() {
             // Обновляем количество игроков
             playersElement.textContent = `Игроков: ${data.players}/${data.maxPlayers}`;
             
-            console.log('Server status updated:', data);
+            console.log('Server status updated successfully:', data);
         } else {
-            throw new Error('Failed to fetch server status');
+            throw new Error(`HTTP ${response.status}: Failed to fetch server status`);
         }
     } catch (error) {
         console.error('Error updating server status:', error);
         // Показываем ошибку
         statusElement.innerHTML = '⚠️ Ошибка';
         statusElement.className = 'status error';
-        playersElement.textContent = 'Не удалось получить данные';
+        playersElement.textContent = `Ошибка: ${error.message}`;
     }
 }
 
