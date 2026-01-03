@@ -235,56 +235,6 @@ body {
     color: #ff6b6b;
 }
 
-/* Forum Section */
-.forum-section {
-    padding: 4rem 0;
-    background-color: #0a0a0a;
-}
-
-.forum-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 3rem;
-    color: #64B5F6;
-}
-
-.forum-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.category-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #222 100%);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid #333;
-    text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    border-color: #64B5F6;
-}
-
-.category-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.category-card h3 {
-    color: #64B5F6;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.category-card p {
-    color: #ccc;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
 /* Footer */
 .footer {
     background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
@@ -348,10 +298,6 @@ body {
     .rules-grid {
         grid-template-columns: 1fr;
     }
-    
-    .forum-categories {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* Smooth scrolling */
@@ -363,4 +309,87 @@ html {
 ::selection {
     background-color: #64B5F6;
     color: #000;
+}
+
+/* Section Dividers */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #64B5F6 20%, #64B5F6 80%, transparent 100%);
+    margin: 3rem 0;
+    border: none;
+    position: relative;
+    opacity: 0.6;
+    animation: dividerFadeIn 1s ease-in-out;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #64B5F6, #42A5F5, #64B5F6);
+    border-radius: 3px;
+    box-shadow: 0 0 15px rgba(100, 181, 246, 0.4);
+    animation: dividerGlow 2s ease-in-out infinite alternate;
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #64B5F6;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(100, 181, 246, 0.6);
+}
+
+@keyframes dividerFadeIn {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    to {
+        opacity: 0.6;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes dividerGlow {
+    from {
+        box-shadow: 0 0 15px rgba(100, 181, 246, 0.4);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(100, 181, 246, 0.7);
+    }
+}
+
+/* Rules Divider */
+.rules-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #64B5F6 30%, #64B5F6 70%, transparent 100%);
+    margin: 2rem 0;
+    border: none;
+    position: relative;
+    opacity: 0.4;
+    grid-column: 1 / -1; /* Занимает всю ширину грида */
+}
+
+.rules-divider::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #64B5F6;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
 }
